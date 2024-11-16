@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="copy-file-container">
+    {% include 'navbar.html' %}
+
+    <h2>Copy File: {{ file.file_name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="target_folder">Select Target Folder:</label>
+        {{ form.as_p }}
+        <button type="submit">Copy</button>
+    </form>
+    <a href="{% if file.folder %}{% url 'file_explorer' file.folder.id %}{% else %}{% url 'file_explorer' %}{% endif %}" class="cancel-link">Cancel</a>
+</div>

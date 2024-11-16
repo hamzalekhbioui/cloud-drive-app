@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="navbar">
+    <div class="navbar-logo">
+        <a href="#">Cloud Drive</a> <!-- Logo link -->
+    </div>
+    <div class="navbar-links">
+        <a href="{% url 'file_explorer' %}">File Explorer</a>
+        <a href="{% url 'account_info' %}">Account Info</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>

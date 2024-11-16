@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="file-explorer-container">
+        <!-- Storage Information -->
+        <p class="storage-info">Storage used: {{ current_storage|floatformat:2 }} bytes (Max: 100 MB)</p>
+        
+        <!-- Optional Storage Progress Bar -->
+        <div class="storage-bar">
+            <div class="storage-bar-used" style="width: {{ storage_percentage }}%;"></div>
+        </div>
+
+        <!-- Alert Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="main-content">
+            <h2>Create Folder</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ folder_form.as_p }}
+                <button type="submit">Create Folder</button>
+            </form>
+            <a href="{% if parent_folder %}{% url 'file_explorer' parent_folder.id %}{% else %}{% url 'file_explorer' %}{% endif %}">Cancel</a>
+        </div>
+        <!-- Main Header and Links 
+        
+        <a href="{% if current_folder %}{% url 'create_subfolder' current_folder.id %}{% else %}{% url 'create_folder' %}{% endif %}" class="action-link">Create Folder</a>
+        -->
+        <!-- File Upload Section -->
+        <h2>Upload a File</h2>
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file" required>
+            <label for="folder">Folder:</label>
+            <select name="folder" id="folder">
+                <option value="">--- Select Folder ---</option>
+                {% for folder in subfolders %}
+                    <option value="{{ folder.id }}">{{ folder.name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" name="upload_file">Upload</button>
+        </form>
+
+        <!-- Folder List -->
+        <h2>Folders</h2>
+        {% if subfolders %}
+            <ul class="folder-list">
+                {% for folder in subfolders %}
+                    <li>
+                        <span>{{ folder.name }}</span>
+                        <span>
+                            <a href="{% url 'file_explorer' folder.id %}">Open</a> |
+                            <a href="{% url 'rename_folder' folder.id %}">Rename</a> |
+                            <a href="{% url 'delete_folder' folder.id %}">Delete</a>
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-content">No folders.</p>
+        {% endif %}
+
+        <!-- File List -->
+        <h2>Files</h2>
+        {% if user_files %}
+            <ul class="file-list">
+                {% for file in user_files %}
+                    <li>
+                        <span>{{ file.file_name }} ({{ file.file_size }} bytes) - Uploaded on: {{ file.uploaded_at|date:"Y-m-d H:i" }}</span>
+                        <span>
+                            <a href="{% url 'download_file' file.id %}">Download</a> |
+                            <a href="{% url 'delete_file' file.id %}">Delete</a> |
+                            <a href="{% url 'rename_file' file.id %}">Rename</a> |
+                            <a href="{% url 'move_file' file.id %}">Move</a> |
+                            <a href="{% url 'copy_file' file.id %}">Copy</a>
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-content">No files.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

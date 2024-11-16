@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="account-info-container">
+        <h2>Account Information</h2>
+        <p>Here’s an overview of your storage usage</p>
+
+        <!-- Pie chart graphic -->
+        <div class="storage-chart">
+            <img src="data:image/png;base64,{{ graphic }}" alt="Storage Distribution by File Type">
+        </div>
+
+        <h3>Storage Usage by File Type</h3>
+        <ul class="storage-list">
+            {% for category, size in category_usage.items %}
+                <li><span class="category">{{ category }}</span>: <span class="size">{{ size|floatformat:2 }} bytes</span></li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'file_explorer' %}" class="back-link">Back to File Explorer</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f5f6fa;
+    padding: 20px;
+}
+
+/* Container styling for both login and register */
+.login-container,
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2,
+.register-container h2 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Alert styling for messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Form elements for login/register and upload forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Links for login/register pages */
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555555;
+}
+
+p a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.navbar-logo a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #3498db;
+}
+
+/* File Explorer Container Styling */
+.file-explorer-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Storage Info Styling */
+.storage-info {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Storage Progress Bar */
+.storage-bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.storage-bar-used {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 4px 0 0 4px;
+    transition: width 0.3s ease;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Main Header and Section Titles */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 22px;
+    color: #555;
+    margin: 20px 0 10px;
+}
+
+/* Upload Form Styling */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.upload-form label {
+    font-size: 14px;
+    color: #333;
+}
+
+.upload-form input[type="file"],
+.upload-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.upload-form button[type="submit"] {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-form button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Action Link Styling */
+.action-link {
+    display: inline-block;
+    font-size: 14px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+/* Folder and File Lists */
+.folder-list,
+.file-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.folder-list li,
+.file-list li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.folder-list li:hover,
+.file-list li:hover {
+    background-color: #e8f4fa;
+}
+
+.folder-list li a,
+.file-list li a {
+    color: #3498db;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.folder-list li a:hover,
+.file-list li a:hover {
+    text-decoration: underline;
+}
+
+/* No Content Message Styling */
+.no-content {
+    color: #888;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+}

@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="create-folder-container">
+    {% include 'navbar.html' %}
+
+    <h2>Create a Folder{% if parent_folder %} in {{ parent_folder.name }}{% endif %}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Folder Name:</label>
+        {{ folder_form.as_p }}
+        <button type="submit">Create Folder</button>
+    </form>
+    <a href="{% if parent_folder %}{% url 'file_explorer' parent_folder.id %}{% else %}{% url 'file_explorer' %}{% endif %}" class="cancel-link">Cancel</a>
+</div>

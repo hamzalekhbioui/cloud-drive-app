@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="rename-folder-container">
+    {% include 'navbar.html' %}
+    <h2>Rename Folder: {{ folder.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="new_name">New Name:</label>
+        {{ form.as_p }}
+        <button type="submit">Rename</button>
+    </form>
+    <a href="{% if folder.parent_folder %}{% url 'file_explorer' folder.parent_folder.id %}{% else %}{% url 'file_explorer' %}{% endif %}" class="cancel-link">Cancel</a>
+</div>

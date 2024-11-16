@@ -1,0 +1,581 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f5f6fa;
+    padding: 20px;
+}
+
+/* Container styling for both login and register */
+.login-container,
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2,
+.register-container h2 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Alert styling for messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Form elements for login/register and upload forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Links for login/register pages */
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555555;
+}
+
+p a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center items in the navbar */
+    align-items: center; /* Center items vertically */
+    padding: 15px 20px;
+    background-color: #2c3e50; /* Background color */
+    color: #ecf0f1; /* Text color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    position: sticky; /* Keep navbar fixed at the top */
+    top: 0;
+    z-index: 1000; /* Ensure it appears above other content */
+    width: 100%; /* Full width */
+    margin-bottom: 20px; /* Space below navbar */
+}
+
+.navbar-logo {
+    margin-right: auto; /* Pushes the logo to the left */
+}
+
+.navbar-links {
+    display: flex; /* Flexbox for links */
+    gap: 20px; /* Space between links */
+}
+
+.navbar-links a {
+    color: #bdc3c7; /* Link color */
+    text-decoration: none; /* No underline */
+    font-size: 16px; /* Font size for links */
+    transition: color 0.3s; /* Transition for hover effect */
+}
+
+.navbar-links a:hover {
+    color: #3498db; /* Change color on hover */
+}
+
+/* Main Content Container */
+.main-content {
+    width: 100%;
+    max-width: 1200px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the main content */
+    padding: 20px; /* Add padding */
+    background-color: #f9f9f9; /* Background color for the main content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+
+/* File Explorer Container Styling */
+.file-explorer-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Storage Info Styling */
+.storage-info {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Storage Progress Bar */
+.storage-bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.storage-bar-used {
+    height: 100%;
+    background-color: #3498db;
+    border-radius: 4px 0 0 4px;
+    transition: width 0.3s ease;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Main Header and Section Titles */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 22px;
+    color: #555;
+    margin: 20px 0 10px;
+}
+
+/* Upload Form Styling */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.upload-form label {
+    font-size: 14px;
+    color: #333;
+}
+
+.upload-form input[type="file"],
+.upload-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.upload-form button[type="submit"] {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-form button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Action Link Styling */
+.action-link {
+    display: inline-block;
+    font-size: 14px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+/* Folder and File Lists */
+.folder-list,
+.file-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.folder-list li,
+.file-list li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.folder-list li:hover,
+.file-list li:hover {
+    background-color: #e8f4fa;
+}
+
+.folder-list li a,
+.file-list li a {
+    color: #3498db;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.folder-list li a:hover,
+.file-list li a:hover {
+    text-decoration: underline;
+}
+
+/* No Content Message Styling */
+.no-content {
+    color: #888;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+/* Rename File Container */
+.rename-file-container {
+    width: 100%;
+    max-width: 400px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+/* Main Title */
+.rename-file-container h2 {
+    font-size: 24px;
+    color: #333; /* Darker color for readability */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Label Styling */
+.rename-file-container label {
+    font-size: 16px; /* Larger font for clarity */
+    color: #555; /* Soft gray color for labels */
+    margin-bottom: 10px; /* Space below the label */
+    display: block; /* Make labels block elements */
+}
+
+/* Input Field Styling */
+.rename-file-container input[type="text"] {
+    width: 100%; /* Full width for input */
+    padding: 10px; /* Padding for input */
+    border: 1px solid #dcdcdc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Consistent font size */
+    margin-bottom: 20px; /* Space below input */
+}
+
+/* Submit Button Styling */
+.rename-file-container button[type="submit"] {
+    padding: 12px; /* Padding for button */
+    font-size: 16px; /* Font size for button */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #ffffff; /* White text */
+    background-color: #3498db; /* Primary button color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.rename-file-container button[type="submit"]:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+
+/* Cancel Link Styling */
+.rename-file-container a.cancel-link {
+    display: block; /* Make link a block element */
+    margin-top: 10px; /* Space above the link */
+    color: #3498db; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.rename-file-container a.cancel-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Main Title */
+.move-file-container h2 {
+    font-size: 24px;
+    color: #333; /* Darker color for readability */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Label Styling */
+.move-file-container label {
+    font-size: 16px; /* Larger font for clarity */
+    color: #555; /* Soft gray color for labels */
+    margin-bottom: 10px; /* Space below the label */
+    display: block; /* Make labels block elements */
+}
+
+/* Input Field Styling */
+.move-file-container input[type="text"] {
+    width: 100%; /* Full width for input */
+    padding: 10px; /* Padding for input */
+    border: 1px solid #dcdcdc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Consistent font size */
+    margin-bottom: 20px; /* Space below input */
+}
+
+/* Submit Button Styling */
+.move-file-container button[type="submit"] {
+    padding: 12px; /* Padding for button */
+    font-size: 16px; /* Font size for button */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #ffffff; /* White text */
+    background-color: #3498db; /* Primary button color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.move-file-container button[type="submit"]:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+
+/* Cancel Link Styling */
+.move-file-container a.cancel-link {
+    display: block; /* Make link a block element */
+    margin-top: 10px; /* Space above the link */
+    color: #3498db; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.move-file-container a.cancel-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Copy File Container */
+.copy-file-container {
+    width: 100%;
+    max-width: 400px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center the text */
+}
+
+/* Main Title */
+.copy-file-container h2 {
+    font-size: 24px;
+    color: #333; /* Darker color for readability */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Label Styling */
+.copy-file-container label {
+    font-size: 16px; /* Larger font for clarity */
+    color: #555; /* Soft gray color for labels */
+    margin-bottom: 10px; /* Space below the label */
+    display: block; /* Make labels block elements */
+}
+
+/* Input Field Styling */
+.copy-file-container input[type="text"] {
+    width: 100%; /* Full width for input */
+    padding: 10px; /* Padding for input */
+    border: 1px solid #dcdcdc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Consistent font size */
+    margin-bottom: 20px; /* Space below input */
+}
+
+/* Submit Button Styling */
+.copy-file-container button[type="submit"] {
+    padding: 12px; /* Padding for button */
+    font-size: 16px; /* Font size for button */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #ffffff; /* White text */
+    background-color: #3498db; /* Primary button color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.copy-file-container button[type="submit"]:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+
+/* Cancel Link Styling */
+.copy-file-container a.cancel-link {
+    display: block; /* Make link a block element */
+    margin-top: 10px; /* Space above the link */
+    color: #3498db; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.copy-file-container a.cancel-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Account Information Container */
+.account-info-container {
+    width: 100%;
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center text */
+}
+
+/* Main Title */
+.account-info-container h2 {
+    font-size: 28px; /* Increased font size for prominence */
+    color: #333; /* Darker color for readability */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+/* Subtitle */
+.account-info-container p {
+    font-size: 16px; /* Subtitle size */
+    color: #555; /* Softer color for subtitles */
+    margin-bottom: 20px; /* Space below the paragraph */
+}
+
+/* Storage Chart Styling */
+.storage-chart {
+    margin: 20px 0; /* Space around the chart */
+}
+
+/* Storage Usage List Styling */
+.storage-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    text-align: left; /* Align text to the left */
+}
+
+.storage-list li {
+    font-size: 16px; /* Font size for list items */
+    color: #333; /* Dark color for readability */
+    padding: 5px 0; /* Space above and below list items */
+    border-bottom: 1px solid #ddd; /* Light border between items */
+}
+
+/* Links Styling */
+.back-link {
+    display: inline-block; /* Make link an inline-block */
+    margin-top: 20px; /* Space above the link */
+    color: #3498db; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+.back-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
